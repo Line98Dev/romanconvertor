@@ -38,10 +38,14 @@ def toRoman(arabicNumber)
     if arabicValues[arabicNumber]
       arabicValues[arabicNumber]
     end
-    arabicValues.reduce("") do  |string, (arabic, roman)|
+    string = ""
+    arabicValues.each { |entry|
+      arabic = entry[0]
+      roman = entry[1]
       quotient, arabicNumber = arabicNumber.divmod(arabic)
       string << roman * quotient
-      end
+    }
+    string
   else
     raise RangeError
   end

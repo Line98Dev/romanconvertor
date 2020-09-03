@@ -50,18 +50,6 @@ class TestRomanConvertor < Test::Unit::TestCase
         assert_equal(original, convertedRoman)
     end
 
-    def test_sanity2
-        original = "1498"
-        convertedArabic = toRoman(original)
-        assert_equal(convertedArabic, "MCDXCVIII")
-    end
-
-    def test_sanity3
-        original = "MCDXCVIII"
-        convertedArabic = fromRoman(original)
-        assert_equal(1498, convertedArabic)
-    end
-
     def test_negativeNumber
         assert_raise RangeError do
             toRoman(-1)
